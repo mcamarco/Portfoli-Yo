@@ -61,7 +61,7 @@ User.init(
         },
         headshotImage: {
             type: DataTypes.STRING,
-            allowNull: true
+             allowNull: true
         }
     },
     {
