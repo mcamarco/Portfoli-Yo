@@ -36,6 +36,14 @@ User.init(
                 len: [8],
             },
         },
+        firstName: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        lastName: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         linkedinURL: {
             type: DataTypes.STRING,
             allowNull: true,
