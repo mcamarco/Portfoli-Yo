@@ -14,7 +14,6 @@ Event.init(
         location: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
         },
         eventName: {
             type: DataTypes.STRING,
@@ -23,7 +22,6 @@ Event.init(
         eventDescription: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
         },
         industry: {
             type: DataTypes.STRING,

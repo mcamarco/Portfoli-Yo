@@ -39,13 +39,15 @@ router.post('/:id', passwordAuth, async (req, res) => {
       }
     })
     const userId = user.id
+    console.log(userId)
 
-    const event = await Post.findOne({
+    const event = await Event.findOne({
       where: {
         id: req.params.id
       }
     })
     const eventId = event.id
+    console.log(eventId)
 
     const newComment = await Comment.create({
       content: req.body.content,
