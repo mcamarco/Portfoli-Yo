@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Comment } = require('../../models/');
-const withAuth = require('../../utils/passwordAuth');
+const { Comment } = require('../models/');
+const withAuth = require('../utils/passwordAuth');
 
 // Route for deleting a comment
 router.delete('/:id', withAuth, async (req, res) => {

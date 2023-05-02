@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { event } = require('../../models/');
-const withAuth = require('../../utils/passwordAuth');
+const { event } = require('../models/');
+const withAuth = require('../utils/passwordAuth');
 
 // Route for getting all events
 router.get('/', withAuth, async (req, res) => {
