@@ -1,12 +1,7 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection')
-const bcrypt = require('bcrypt')
 
-class Event extends Model {
-    checkPassword(loginPw) {
-        return bcrypt.compareSync(loginPw, this.password)
-    }
-}
+class Event extends Model {}
 
 Event.init(
     {
@@ -27,29 +22,20 @@ Event.init(
             unique: true,
         },
         userId: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
-            validate: {
-                len: [8],
-            },
+            references: {
+                model: "user",
+                key: "id"
+            }
         },
     },
     {
-        hooks: {
-            beforeCreate: async (newUserData) => {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                return newUserData;
-            },
-            beforeUpdate: async (updatedUserData) => {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-                return updatedUserData;
-            },
-        },
         sequelize,
-        timestamps: false,
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'userId',
+        modelName: 'event',
     }
 )
 
