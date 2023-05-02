@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { Comment } = require('../models/');
-const withAuth = require('../utils/passwordAuth');
+const { Comment } = require('../../models/Comment');
+const passwordAuth = require('../../utils/passwordAuth');
 
 // Route for deleting a comment
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', passwordAuth, async (req, res) => {
   try {
     // Find the comment to be deleted by its id
     const commentData = await Comment.findByPk(req.params.id);
@@ -31,7 +31,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 
 
 // Route for creating a new comment
-router.post('/', withAuth, async (req, res) => {
+router.post('/', passwordAuth, async (req, res) => {
   const body = req.body;
 
   try {
@@ -45,5 +45,7 @@ router.post('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//Route for deleting a comment 
 
 module.exports = router;
