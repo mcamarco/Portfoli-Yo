@@ -1,6 +1,6 @@
 const router = require("express").Router()
 const { User, Event, Comment } = require("../../models")
-const passwordAuth = require("../../utils/passwordAuth")
+const passwordAuth = require("../utils/passwordAuth")
 
 //Get request to render homepage
 router.get("/", (req, res) => {
@@ -36,9 +36,50 @@ router.get("/profile/:id", passwordAuth, async (req, res) => {
     }
 })
 
-//Get request to render dashboard page to render all events of logged in user 
+//Get request to render dashboard events page to render all events of logged in user 
+router.get("/dashboard", passwordAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.userId, {
+            include: [
+                { model: Event }
+            ]
+        })
+
+        const user = userData.get({ plain: true })
+
+        res.render("dashboard", {
+            ...user,
+            loggedIn: req.session.loggedIn,
+            userId: req.session.userId
+        })
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
 
 //Get request to render event page to get all event data joined with user data 
+router.get("/events", passwordAuth, async (req, res) => {
+    try{
+        const eventData = await Event.findAll({
+            include: [
+                {
+                    model: User, 
+                    attributes: ["username", "id"]
+                },
+            ],
+        })
+
+        const events = eventData.map((ev) => ev.get({ plain: true }))
+
+        res.render("events", {
+            events,
+            loggedIn: req.session.loggedIn,
+            userId: req.session.userId
+        })
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
 
 //Get request to render single event joined with user data and comment data 
 
