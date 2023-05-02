@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Comment } = require('../../models/Comment');
+const { Comment, User, Event } = require('../../models');
 const passwordAuth = require('../../utils/passwordAuth');
 
 // Route for deleting a comment
@@ -31,21 +31,33 @@ router.delete('/:id', passwordAuth, async (req, res) => {
 
 
 // Route for creating a new comment
-router.post('/', passwordAuth, async (req, res) => {
-  const body = req.body;
-
+router.post('/:id', passwordAuth, async (req, res) => {
   try {
-    // Create a new comment with the current user ID as the author
+    const user = await User.findOne({
+      where: {
+        username: req.session.username
+      }
+    })
+    const userId = user.id
+
+    const event = await Post.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+    const eventId = event.id
+
     const newComment = await Comment.create({
-      ...body,
-      userId: req.session.userId,
-    });
-    res.json(newComment);
+      content: req.body.content,
+      userId: userId,
+      eventId: eventId
+    })
+
+    res.status(200).json(newComment)
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-//Route for deleting a comment 
 
 module.exports = router;

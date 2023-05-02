@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Event } = require('../../models/');
+const { Event, User } = require('../../models/');
 const passwordAuth = require('../../utils/passwordAuth');
 
 
