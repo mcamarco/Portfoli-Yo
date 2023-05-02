@@ -6,7 +6,8 @@ const passwordAuth = require("../utils/passwordAuth")
 router.get("/", (req, res) => {
     try {
         res.render("homepage", {
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            userId: req.session.userId
         })
     } catch (err) {
         res.status(500).json(err)
