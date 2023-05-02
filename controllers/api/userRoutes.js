@@ -76,10 +76,10 @@ router.put("/:id", passwordAuth, async (req, res) => {
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 linkedinURL: req.body.linkedinURL,
-                location: req.body.location, 
+                location: req.body.location,
                 industry: req.body.industry,
                 jobTitle: req.body.jobTitle,
-                aboutMe: req.body.aboutMe, 
+                aboutMe: req.body.aboutMe,
                 //headshot??
             },
             {
@@ -107,9 +107,25 @@ router.delete("/:id", passwordAuth, async (req, res) => {
             return
         }
         res.status(200).json(profileData)
-    } catch(err) {
+    } catch (err) {
         res.status(500).json(err)
     }
 })
+
+
+// TODO: REMOVE AFTER TESTING
+router.get("/", async (req, res) => {
+    try {
+        const profileData = await User.findAll({
+        })
+        if (!profileData) {
+            res.status(404).json({ message: "No profile found with this id" })
+            return
+        }
+        res.status(200).json(profileData)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+});
 
 module.exports = router

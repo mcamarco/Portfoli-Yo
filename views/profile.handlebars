@@ -1,0 +1,40 @@
+<!-- Import Bulma CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+
+<!-- Create a container to hold all profile information -->
+<div class="container">
+
+  <!-- Display user's profile picture -->
+  {{#if user.headshotImage}}
+    <img src="{{user.headshotImage}}" alt="Profile Picture" class="image is-128x128">
+  {{/if}}
+
+  <!-- Display user's full name -->
+  <h1 class="title">{{user.firstName}} {{user.lastName}}</h1>
+
+  <!-- Display user's job title -->
+  {{#if user.jobTitle}}
+    <h2 class="subtitle">{{user.jobTitle}}</h2>
+  {{/if}}
+
+  <!-- Display user's location and industry -->
+  {{#if user.location}}
+    <p><strong>Location:</strong> {{user.location}}</p>
+  {{/if}}
+  {{#if user.industry}}
+    <p><strong>Industry:</strong> {{user.industry}}</p>
+  {{/if}}
+
+  <!-- Display user's LinkedIn URL -->
+  {{#if user.linkedinURL}}
+    <p><a href="{{user.linkedinURL}}" target="_blank">LinkedIn Profile</a></p>
+  {{/if}}
+
+  <!-- Display user's about me section -->
+  {{#if user.aboutMe}}
+    <hr>
+    <h2 class="subtitle">About Me</h2>
+    <p>{{user.aboutMe}}</p>
+  {{/if}}
+
+</div>
