@@ -22,7 +22,7 @@ router.post('/', passwordAuth, async (req, res) => {
 //Route for updating an event
 router.put("/:event", passwordAuth, async (req, res) => {
   try {
-      const newEvent = await User.update(
+      const newEvent = await Event.update(
           {
               eventName: req.body.eventName,
               eventLocation: req.body.eventLocation, 
