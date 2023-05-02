@@ -4,7 +4,7 @@ const profileInput = document.getElementById("profile-input");
 const profileBtn = document.getElementById("profile-btn");
 
 // set the API key for QR Code Generator
-const apiKey = "????";
+const apiKey = "-84PaSpz6Rtj5Zl51xyE0jeRO0j4osupkLbMU0drSFOTLcgoVXti9bAOVUvFkFtg";
 
 // generate QR code once profile has been created
 profileBtn.addEventListener("click", () => {
