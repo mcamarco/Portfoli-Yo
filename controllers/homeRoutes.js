@@ -82,5 +82,33 @@ router.get("/events", passwordAuth, async (req, res) => {
 })
 
 //Get request to render single event joined with user data and comment data 
+router.get("/events/:id", passwordAuth, async (req, res) => {
+    try {
+        const eventData = await Event.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                },
+                {
+                    model: Comment,
+                    include: {
+                        model: User, 
+                        attributes: ["username"]
+                    },
+                },
+            ],
+        })
+        const event = eventData.get({ plain: true })
+
+        res.render("singleEvent", {
+            ...event,
+            loggedIn: req.session.loggedIn,
+            userId: req.session.userId,
+            postId: req.params.id
+        })
+    }catch (err) {
+        res.status(500).json(err)
+    }
+})
 
 //Get request to render login page 
