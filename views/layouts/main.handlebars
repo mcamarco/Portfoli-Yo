@@ -22,7 +22,6 @@
                 <a href="/events" class="navbar-item">Events</a>
                 <a href="/profile/{{userId}}" class="navbar-item">Profile</a>
                 {{#if logged_in}}
-                {{!-- logout button not coming up when logged in --}}
                 <button class="navbar-item" id="logout">Logout</button>
                 {{else}}
                 <a href="/login" class="navbar-item">Login</a>
