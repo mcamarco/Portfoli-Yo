@@ -1,10 +1,13 @@
+// TODO: For use in future development, API confirmed to work, but requires payment method to be added to OpenAI account
+
+
 // Get the HTML elements for the about me section
 const aboutMe = document.getElementById("about-me");
 const aboutMeInput = document.getElementById("about-me-input");
 const aboutMeBtn = document.getElementById("about-me-btn");
 
 // Set the API key for ChatGPT
-const apiKey = "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";
+const apiKey = "API KEY GOES HERE";
 
 // Check if the user wants to use ChatGPT to generate their about me section
 aboutMeBtn.addEventListener("click", () => {
