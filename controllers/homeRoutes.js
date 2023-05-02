@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 })
 
 //Get request to render profile page of logged in user
-router.get("/profile/:id", async (req, res) => {
+router.get("/profile/:id", passwordAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.params.id, {
             include: [
