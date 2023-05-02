@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const { event } = require('../../models/');
+const { Event } = require('../../models/');
 const passwordAuth = require('../../utils/passwordAuth');
+
 
 // Route for creating a new event
 router.post('/', passwordAuth, async (req, res) => {
@@ -8,7 +9,7 @@ router.post('/', passwordAuth, async (req, res) => {
 
   try {
     // Create a new comment with the current user ID as the author
-    const newEvent = await event.create({
+    const newEvent = await Event.create({
       ...body,
       userId: req.session.userId,
     });
