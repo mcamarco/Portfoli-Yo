@@ -1,39 +1,27 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+<p>Name: {{firstName}} {{lastName}}</p>
+<p>Email: {{email}}</p>
+<p>Location: {{location}}</p>
+<p>Industry: {{industry}}</p>
+<p>Job Title: {{jobTitle}}</p>
+<p>LinkedIn URL: {{linkedinURL}} </p>
 
-<!-- Create a container to hold all profile information -->
-<div class="container">
+<div class="post card">
+  <div class="card-header">
+    <h2>Edit Post</h2>
+  </div>
+  <form id="update-user-form" class="card-body">
+    <input type="hidden" name="post-id" value="{{post.id}}" />
 
-  <!-- Display user's profile picture -->
-  {{#if user.headshotImage}}
-    <img src="{{user.headshotImage}}" alt="Profile Picture" class="image is-128x128">
-  {{/if}}
+    <label class="form-label" for="post-title">Job Title</label>
+    <input type="text" name="post-title" value="{{post.title}}" class="form-input" />
 
-  <!-- Display user's full name -->
-  <h1 class="title">{{user.firstName}} {{user.lastName}}</h1>
+    <label class="form-label" for="post-body">Content</label>
+    <textarea name="post-body" class="form-input">{{post.body}}</textarea>
+<br> <br>
+    <button type="submit" class="btn">Update</button>
 
-  <!-- Display user's job title -->
-  {{#if user.jobTitle}}
-    <h2 class="subtitle">{{user.jobTitle}}</h2>
-  {{/if}}
-
-  <!-- Display user's location and industry -->
-  {{#if user.location}}
-    <p><strong>Location:</strong> {{user.location}}</p>
-  {{/if}}
-  {{#if user.industry}}
-    <p><strong>Industry:</strong> {{user.industry}}</p>
-  {{/if}}
-
-  <!-- Display user's LinkedIn URL -->
-  {{#if user.linkedinURL}}
-    <p><a href="{{user.linkedinURL}}" target="_blank">LinkedIn Profile</a></p>
-  {{/if}}
-
-  <!-- Display user's about me section -->
-  {{#if user.aboutMe}}
-    <hr>
-    <h2 class="subtitle">About Me</h2>
-    <p>{{user.aboutMe}}</p>
-  {{/if}}
-
+    <button type="button" id="delete-btn" class="btn">Delete</button>
+  </form>
 </div>
+
+<script src="/js/update.js"></script>

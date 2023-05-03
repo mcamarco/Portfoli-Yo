@@ -18,15 +18,15 @@ router.get("/", (req, res) => {
 router.get("/profile/:id", passwordAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.params.id, {
-            include: [
-                {
-                    model: User, 
-                    attributes: ["username", "email", "firstName", "lastName", "linkedinURL", "location", "industry", "jobTitle", "aboutMe"]
-                }
-            ]
+            // include: [
+            //     {
+            //         model: User, 
+            //         attributes: ["username", "email", "firstName", "lastName", "linkedinURL", "location", "industry", "jobTitle", "aboutMe"]
+            //     }
+            // ]
         })
         const user = userData.get({ plain: true })
-
+        console.log(user)
         res.render("profile", {
             ...user,
             loggedIn: req.session.loggedIn,
@@ -60,11 +60,11 @@ router.get("/dashboard", passwordAuth, async (req, res) => {
 
 //Get request to render event page to get all event data joined with user data 
 router.get("/events", passwordAuth, async (req, res) => {
-    try{
+    try {
         const eventData = await Event.findAll({
             include: [
                 {
-                    model: User, 
+                    model: User,
                     attributes: ["username", "id"]
                 },
             ],
@@ -93,7 +93,7 @@ router.get("/events/:id", passwordAuth, async (req, res) => {
                 {
                     model: Comment,
                     include: {
-                        model: User, 
+                        model: User,
                         attributes: ["username"]
                     },
                 },
@@ -107,7 +107,7 @@ router.get("/events/:id", passwordAuth, async (req, res) => {
             userId: req.session.userId,
             postId: req.params.id
         })
-    }catch (err) {
+    } catch (err) {
         res.status(500).json(err)
     }
 })
