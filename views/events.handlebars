@@ -1,76 +1,30 @@
-   <div class="columns is-centered">
+{{#if events.length}}
+{{#each events}}
+<a href="/events/{{this.id}}">
+<div class="columns is-centered events">
     <div class="column is-half">
-    <div class="card my-5 mx-5">
-      <header class="card-header">
-        <p class="card-header-title">
-          Event #1
-        </p>
-      </header>
-      <div class="card-content">
-        <div class="content">
-        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-        <br>
-          Come join us for this totally awesome and real Event!
-          <br><br>
-          <a href="#">@Event Link</a>
-          <br>
+        <div class="card my-5 mx-5">
+            <header class="card-header">
+                <p class="card-header-title">
+                    {{this.eventName}}
+                </p>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    <p>Date: {{this.date}}</p>
+                    <p>Location: {{this.location}}</p>
+                   <p>Industry: {{industry}}</p>
+                   <p>Event Description: {{eventDescription}}</p>
+                </div>
+            </div>
         </div>
-      </div>
-      <footer class="card-footer">
-        <a href="#" class="card-footer-item">Add Event to Calendar</a>
-      </footer>
     </div>
-    </div>
-    </div>
+</div>
+</a>
 
-   <div class="columns is-centered">
-    <div class="column is-half">
-    <div class="card my-5 mx-5">
-      <header class="card-header">
-        <p class="card-header-title">
-          Event #1
-        </p>
-      </header>
-      <div class="card-content">
-        <div class="content">
-        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-        <br>
-          Come join us for this totally awesome and real Event!
-          <br><br>
-          <a href="#">@Event Link</a>
-          <br>
-        </div>
-      </div>
-      <footer class="card-footer">
-        <a href="#" class="card-footer-item">Add Event to Calendar</a>
-      </footer>
-    </div>
-    </div>
-    </div>
-
-   <div class="columns is-centered">
-    <div class="column is-half">
-    <div class="card my-5 mx-5">
-      <header class="card-header">
-        <p class="card-header-title">
-          Event #1
-        </p>
-      </header>
-      <div class="card-content">
-        <div class="content">
-        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-        <br>
-          Come join us for this totally awesome and real Event!
-          <br><br>
-          <a href="#">@Event Link</a>
-          <br>
-        </div>
-      </div>
-      <footer class="card-footer">
-        <a href="#" class="card-footer-item">Add Event to Calendar</a>
-      </footer>
-    </div>
-    </div>
-    </div>
+{{/each}}
+{{else}}
+<p style="text-align: center">You're not going to any events</p>
+{{/if}} 
 
 <script src="/js/login.js"></script>
