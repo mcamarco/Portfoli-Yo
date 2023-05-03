@@ -20,7 +20,7 @@ const updateEventHandler = async (event) => {
     const eventDescription = document.getElementById("descriptionInput").value.trim()
 
     if (eventName && date && location && industry && eventDescription) {
-        const response = await fetch(`api/event/${parseInt(eventId)}`, {
+        const response = await fetch(`/api/event/${parseInt(eventId)}`, {
             method: "PUT",
             body: JSON.stringify({ eventName, date, location, industry, eventDescription }),
             headers: { "Content-Type": "application/json" }
@@ -36,5 +36,17 @@ const updateEventHandler = async (event) => {
 
 updateButton.addEventListener("click", updateEventHandler)
 
+const deleteEventHandler = async () => {
+    const response = await fetch(`/api/event/${parseInt(eventId)}`, {
+        method: "DELETE",
+    })
 
+    if (response.ok) {
+        document.location.replace("/dashboard")
+    } else {
+        alert("Failed to delete event")
+    }
+}
+
+deleteButton.addEventListener("click", deleteEventHandler)
 
