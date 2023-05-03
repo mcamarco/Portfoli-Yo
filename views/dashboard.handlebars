@@ -1,1 +1,26 @@
 {{!-- render all events of just logged in user --}}
+<h1>Your Events</h1>
+{{#if posts.length}}
+{{#each posts}}
+<div class="columns is-centered">
+    <div class="column is-half">
+        <div class="card my-5 mx-5">
+            <header class="card-header">
+                <p class="card-header-title">
+                    {{this.event.eventName}}
+                </p>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    <p>Date: {{this.event.date}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+{{else}}
+<p style="text-align: center">You're not going to any events</p>
+{{/if}}
+
+<button class="button" id="new-post"><i class="fa-solid fa-user-plus"></i>New Event</button>
