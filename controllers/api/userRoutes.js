@@ -2,6 +2,7 @@ const router = require("express").Router()
 const { User } = require("../../models")
 const passwordAuth = require("../../utils/passwordAuth")
 
+
 //Post request to create a new user
 router.post("/", async (req, res) => {
     try {
@@ -13,13 +14,14 @@ router.post("/", async (req, res) => {
 
         req.session.save(() => {
             req.session.loggedIn = true,
-                req.session.userId = userData.id,
-                req.session.username = req.body.username
+            req.session.userId = userData.id,
+            req.session.username = req.body.username
 
             res.status(200).json(userData)
         })
     } catch (err) {
         res.status(500).json(err)
+        alert("Username or email already exists")
     }
 })
 
@@ -113,19 +115,37 @@ router.delete("/:id", passwordAuth, async (req, res) => {
 })
 
 
-// TODO: REMOVE AFTER TESTING
-router.get("/", async (req, res) => {
-    try {
-        const profileData = await User.findAll({
-        })
-        if (!profileData) {
-            res.status(404).json({ message: "No profile found with this id" })
-            return
+// TODO: Create PUT route for updating user profile
+router.put("/:id", passwordAuth, async (req, res) => {
+try{
+     const updatedUser = await User.update(req.body, {
+        where: {
+            id: req.params.id
         }
-        res.status(200).json(profileData)
-    } catch (err) {
-        res.status(500).json(err)
+     })
+     if (!updatedUser) {
+        res.status(404).json({ message: "No profile found with this id" })
+        return
     }
-});
+    res.status(200).json(updatedUser)
+}catch(err){
+    res.status(500).json(err)
+}
+})
+
+// TODO: REMOVE AFTER TESTING
+// router.get("/", async (req, res) => {
+//     try {
+//         const profileData = await User.findAll({
+//         })
+//         if (!profileData) {
+//             res.status(404).json({ message: "No profile found with this id" })
+//             return
+//         }
+//         res.status(200).json(profileData)
+//     } catch (err) {
+//         res.status(500).json(err)
+//     }
+// });
 
 module.exports = router
