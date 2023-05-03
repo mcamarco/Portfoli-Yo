@@ -1,179 +1,67 @@
-{{!-- User Profile Page - View Current Data have ability to update --}}
+<!-- User Profile Page - View Current Data have ability to update -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
 
-{{!-- TODO: hide profile if looking to edit --}}
+<!-- Form using Bulma -->
+<div class="container box p-6 has-background-light">
+  <h1 class="title has-text-centered has-text-success">Update Profile</h1>
 
-{{!-- TODO: Clean Up Profile View/Template --}}
-<p>Name: {{firstName}} {{lastName}}</p>
-<p>Email: {{email}}</p>
-<p>Location: {{location}}</p>
-<p>Industry: {{industry}}</p>
-<p>Job Title: {{jobTitle}}</p>
-<p>LinkedIn URL: {{linkedinURL}} </p>
+  <form id="update-user-form">
+    <div class="field">
+      <label class="label">First Name</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="Enter your first name" name="firstName" value="{{firstName}}" required>
+      </div>
+    </div>
 
-{{!-- TODO: Create Form --}}
-<div class="post card">
-  <div class="card-header">
-    {{!-- <h2>Edit Post</h2> --}}
-  </div>
-  <form id="update-user-form" class="card-body">
-    <input type="hidden" name="post-id" value="{{post.id}}" />
+    <div class="field">
+      <label class="label">Last Name</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="Enter your last name" name="lastName" value="{{lastName}}" required>
+      </div>
+    </div>
 
-    {{!-- <label class="form-label" for="post-title">Job Title</label>
-    <input type="text" name="post-title" value="{{post.title}}" class="form-input" />
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control">
+        <input class="input" type="email" placeholder="Enter your email" name="email" value="{{email}}" required>
+      </div>
+    </div>
 
-    <label class="form-label" for="post-body">Content</label>
-    {{!-- <textarea name="post-body" class="form-input">{{post.body}}</textarea> --}}
-<br>
-    <button type="submit" class="btn">Update Profile </button>
+    <div class="field">
+      <label class="label">Location</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="Enter your location" name="location" value="{{location}}" required>
+      </div>
+    </div>
 
-    <button type="button" id="delete-btn" class="btn">Delete Profile</button>
+    <div class="field">
+      <label class="label">Industry</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="Enter your industry" name="industry" value="{{industry}}" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Job Title</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="Enter your job title" name="jobTitle" value="{{jobTitle}}" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">LinkedIn URL</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="Enter your LinkedIn URL" name="linkedinURL" value="{{linkedinURL}}" required>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button type="submit" class="button is-success">Save Changes</button>
+      </div>
+      <div class="control">
+        <button type="button" id="delete-btn" class="button is-danger">Delete Profile</button>
+      </div>
+    </div>
   </form>
 </div>
-
-<script src="/js/update.js"></script>
-
-
-{{!-- TODO: Form from Bulma --}}
-
-<head>
-    <link
-      rel="stylesheet" href=
-"https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <script src=
-"https://use.fontawesome.com/releases/v5.15.4/js/all.js">
-    </script>
-  </head>
-  <body>
-    <div class="container box p-6
-                has-background-light">
-      <h1 class="title has-text-centered
-                 has-text-success">
-        GeeksforGeeks
-      </h1>
-      <h2 class="subtitle has-text-centered">
-        Sign Up Form
-      </h2>
-      <form action="">
-        <div class="field">
-          <label class="label">Name</label>
-          <div class="control">
-            <input class="input" type="text"
-                   placeholder="Enter your name" />
-          </div>
-        </div>
-  
-        <div class="field">
-          <label class="label">Username</label>
-          <div class="control has-icons-left
-                      has-icons-right">
-            <input
-              class="input is-success"
-              type="text"
-              placeholder="Enter your username"
-            />
-            <span class="icon is-small is-left">
-              <i class="fas fa-user"></i>
-            </span>
-          </div>
-        </div>
-  
-        <div class="field">
-          <label class="label">Email</label>
-          <div class="control has-icons-left
-                      has-icons-right">
-            <input
-              class="input is-danger"
-              type="email"
-              placeholder="Enter your email"
-            />
-            <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
-          </div>
-        </div>
-  
-        <div class="field">
-          <label class="label">Password</label>
-          <div class="control has-icons-left
-                      has-icons-right">
-            <input
-              class="input is-danger"
-              type="password"
-              placeholder="Enter your password"
-            />
-            <span class="icon is-small is-left">
-              <i class="fas fa-key"></i>
-            </span>
-          </div>
-        </div>
-  
-        <div class="field">
-          <label class="label">
-            Choose your Course
-          </label>
-          <div class="control">
-            <div class="select">
-              <select>
-                <option>Java</option>
-                <option>C++</option>
-                <option>Python</option>
-              </select>
-            </div>
-          </div>
-        </div>
-  
-        <div class="field">
-          <label class="label">
-            Something Else
-          </label>
-          <div class="control">
-            <textarea
-              class="textarea"
-              placeholder="Want to tell anything?"
-            ></textarea>
-          </div>
-        </div>
-  
-        <div class="field">
-          <div class="control">
-            <label class="checkbox">
-              <input type="checkbox" />
-              I agree to the <a href="#">
-              terms and conditions
-              </a>
-            </label>
-          </div>
-        </div>
-  
-        <div class="field">
-          <div class="control">
-            <label class="radio">
-              <input type="radio" 
-                     name="question" />
-              Yes
-            </label>
-            <label class="radio">
-              <input type="radio" 
-                     name="question" />
-              No
-            </label>
-          </div>
-        </div>
-  
-        <div class="field is-grouped">
-          <div class="control">
-            <button class="button is-success">
-              Sign up
-            </button>
-          </div>
-          <div class="control">
-            <button class="button is-link is-light">
-              Cancel
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </body>
