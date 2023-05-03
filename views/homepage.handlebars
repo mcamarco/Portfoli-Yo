@@ -1,11 +1,10 @@
-
 <!-- Main container -->
 <nav class="level">
   <!-- Left side -->
   <div class="level-left">
     <div class="level-item">
       <p class="subtitle is-5">
-        <strong>Search Portfoli-Yo</strong> 
+        <strong>Search Portfoli-Yo</strong>
       </p>
     </div>
     <div class="level-item">
@@ -14,10 +13,22 @@
           <input class="input" type="text" placeholder="Find a Portfoli-Yo">
         </p>
         <p class="control">
-          <button class="button">
+          <button class="button" id="searchBar">
             Search
           </button>
         </p>
       </div>
     </div>
   </div>
+</nav>
+
+<div class="card">
+  <div class="card-content">
+    <p class="title">
+      {{!-- Search Results append here --}}
+      <id="searchResults"> </id> 
+    </p>
+  </div>
+</div>
+
+<script src="../public/js/search.js"></script> 
