@@ -70,4 +70,15 @@ router.delete("/:id", passwordAuth, async (req, res) => {
   }
 })
 
+
+// Route for getting all events
+router.get("/", (req, res) => {
+  try {
+    const events = Event.findAll({});
+    console.log(events);
+    res.render("events", events);
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
 module.exports = router;
