@@ -1,15 +1,20 @@
 const searchButton = document.getElementById("searchBar");
-const results = ["result1", "result2", "result3"];
+const searchResults = document.getElementById("searchResults");
+const userSearch = document.querySelector('username').value.trim 
 
 searchButton.addEventListener("click", function() {
 
+    // Get the search query from the input field
+const query = document.getElementById("searchBar").value; 
+
     // Render search results
-    const filteredItems = search(results, "query");
-    filteredItems.forEach(function (result) {
-        $("#filteredItems").append($("<searchResults>").text(result));
-    }
-    Else {
-        append($("<searchResults>").text(No results found))
+    const userSearch = search(results, query) 
+    if (userSearch){
+        userSearch.forEach(function (result) {
+            searchResults.textContent=result
+})}
+    else {
+        searchResults.textContent= "No results found"
     }
     });
 
@@ -26,3 +31,25 @@ function search(items, query) {
 
     return filteredItems;
 };
+
+//Post request for search 
+const response = await fetch('/api/user/search', {
+method: "POST",
+body: JSON.stringify({username}),
+});
+
+if (response.ok) {
+document.location.replace('username')
+}else{
+alert(response.statusText)
+
+const searchResults =response.json() 
+const pTag =document.createElement()
+pTag.textcontent= searchResults
+
+searchResults=append(pTag)
+
+}
+
+
+
