@@ -15,6 +15,10 @@ Event.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        date: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         eventName: {
             type: DataTypes.STRING,
             allowNull: false,

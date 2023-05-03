@@ -1,1 +1,12 @@
 {{!-- render single event joined with its comments --}}
+
+<div class="card" id="post" data-eventid="{{id}}">
+  <div class="card-content">
+    <div class="media-content">
+      <p class="title is-4">{{eventName}}</p>
+      <p class="subtitle is-6">Posted by @{{user.username}} {{formatDate createdAt}}</p>
+    </div>
+  </div>
+  <div class="content">{{eventDescription}}</div>
+</div>
+</div>
