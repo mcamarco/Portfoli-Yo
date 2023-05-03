@@ -1,6 +1,7 @@
 const router = require("express").Router()
-const { User } = require("../models")
-const passwordAuth = require("../utils/passwordAuth")
+const { User } = require("../../models")
+const passwordAuth = require("../../utils/passwordAuth")
+
 
 //Post request to create a new user
 router.post("/", async (req, res) => {
@@ -13,8 +14,8 @@ router.post("/", async (req, res) => {
 
         req.session.save(() => {
             req.session.loggedIn = true,
-                req.session.userId = userData.id,
-                req.session.username = req.body.username
+            req.session.userId = userData.id,
+            req.session.username = req.body.username
 
             res.status(200).json(userData)
         })
@@ -70,30 +71,30 @@ router.post("/logout", passwordAuth, (req, res) => {
 })
 
 //Put request to update user profile
-// router.put("/:id", passwordAuth, async (req, res) => {
-//     try {
-//         const updatedProfile = await User.update(
-//             {
-//                 firstName: req.body.firstName,
-//                 lastName: req.body.lastName,
-//                 linkedinURL: req.body.linkedinURL,
-//                 location: req.body.location,
-//                 industry: req.body.industry,
-//                 jobTitle: req.body.jobTitle,
-//                 aboutMe: req.body.aboutMe,
-//                 //headshot??
-//             },
-//             {
-//                 where: {
-//                     id: req.params.id
-//                 }
-//             }
-//         )
-//         res.status(200).json(updatedProfile)
-//     } catch (err) {
-//         res.status(400).json(err)
-//     }
-// })
+router.put("/:id", passwordAuth, async (req, res) => {
+    try {
+        const updatedProfile = await User.update(
+            {
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                linkedinURL: req.body.linkedinURL,
+                location: req.body.location,
+                industry: req.body.industry,
+                jobTitle: req.body.jobTitle,
+                aboutMe: req.body.aboutMe,
+                //headshot??
+            },
+            {
+                where: {
+                    id: req.params.id
+                }
+            }
+        )
+        res.status(200).json(updatedProfile)
+    } catch (err) {
+        res.status(400).json(err)
+    }
+})
 
 //Delete request to delete a user profile 
 router.delete("/:id", passwordAuth, async (req, res) => {
@@ -113,6 +114,7 @@ router.delete("/:id", passwordAuth, async (req, res) => {
     }
 })
 
+
 // TODO: Create PUT route for updating user profile
 router.put("/:id", passwordAuth, async (req, res) => {
 try{
@@ -128,6 +130,7 @@ try{
     res.status(200).json(updatedUser)
 }catch(err){
     res.status(500).json(err)
+}
 })
 
 // TODO: REMOVE AFTER TESTING
