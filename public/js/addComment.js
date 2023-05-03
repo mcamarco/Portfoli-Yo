@@ -10,7 +10,7 @@ addCommentButton.addEventListener("click", () => {
 const newCommentHandler = async (event) => {
     event.preventDefault()
 
-    const content = document.getElementById("commentInput")
+    const content = document.getElementById("commentInput").value.trim()
     const postId = window.location.toString().split("/")[window.location.toString().split("/").length-1]
 
     if (content) {

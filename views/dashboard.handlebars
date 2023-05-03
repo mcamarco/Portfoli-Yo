@@ -1,26 +1,76 @@
 {{!-- render all events of just logged in user --}}
 <h1>Your Events</h1>
-{{#if posts.length}}
-{{#each posts}}
-<div class="columns is-centered">
+{{#if events.length}}
+{{#each events}}
+<a href="/events/{{this.id}}">
+<div class="columns is-centered events">
     <div class="column is-half">
         <div class="card my-5 mx-5">
             <header class="card-header">
                 <p class="card-header-title">
-                    {{this.event.eventName}}
+                    {{this.eventName}}
                 </p>
             </header>
             <div class="card-content">
                 <div class="content">
-                    <p>Date: {{this.event.date}}</p>
+                    <p>Date: {{this.date}}</p>
+                    <p>Location: {{this.location}}</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</a>
+
 {{/each}}
 {{else}}
 <p style="text-align: center">You're not going to any events</p>
 {{/if}}
 
-<button class="button" id="new-post"><i class="fa-solid fa-user-plus"></i>New Event</button>
+<button class="button" id="newEvent"><i class="fa-solid fa-user-plus"></i>New Event</button>
+
+{{!-- Form to create a new event --}}
+<div class="container is-one-third" id="createForm" style="padding:2rem; display:none">
+    <form>
+        <div class="field">
+            <label class="label">Event Name</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input is-normal" id="eventNameInput" type="text">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Date of Event</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="textarea" id="dateInput" type="text">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Location</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="textarea" id="locationInput" type="text" >
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Industry</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="textarea" id="industryInput" type="text">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Event Description</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="textarea" id="descriptionInput" type="text" >
+            </div>
+        </div>
+
+    </form>
+
+    <button class="button" id="createButton"><i class="fa-solid fa-pen"></i>Create</button>
+
+</div>
+
+<script src="/js/createEvent.js"></script>
