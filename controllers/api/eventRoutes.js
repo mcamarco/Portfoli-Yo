@@ -15,6 +15,7 @@ router.post('/', passwordAuth, async (req, res) => {
 
     const newEvent = await Event.create({
       location: req.body.location,
+      date: req.body.date,
       eventName: req.body.eventName,
       eventDescription: req.body.eventDescription,
       industry: req.body.industry,
@@ -34,6 +35,7 @@ router.put("/:id", passwordAuth, async (req, res) => {
     const updatedEvent = await Event.update(
       {
         location: req.body.location,
+        date: req.body.date,
         eventName: req.body.eventName,
         eventDescription: req.body.eventDescription,
         industry: req.body.industry,
