@@ -71,37 +71,38 @@ router.post("/logout", passwordAuth, (req, res) => {
 })
 
 //Put request to update user profile
-router.put("/:id", passwordAuth, async (req, res) => {
-    try {
-        const updatedProfile = await User.update(
-            {
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
-                linkedinURL: req.body.linkedinURL,
-                location: req.body.location,
-                industry: req.body.industry,
-                jobTitle: req.body.jobTitle,
-                aboutMe: req.body.aboutMe,
-                //headshot??
-            },
-            {
-                where: {
-                    id: req.params.id
-                }
-            }
-        )
-        res.status(200).json(updatedProfile)
-    } catch (err) {
-        res.status(400).json(err)
-    }
-})
+// router.put("/:id", passwordAuth, async (req, res) => {
+//     try {
+//         const updatedProfile = await User.update(
+//             {
+//                 firstName: req.body.firstName,
+//                 lastName: req.body.lastName,
+//                 linkedinURL: req.body.linkedinURL,
+//                 location: req.body.location,
+//                 industry: req.body.industry,
+//                 jobTitle: req.body.jobTitle,
+//                 aboutMe: req.body.aboutMe,
+//                 //headshot??
+//             },
+//             {
+//                 where: {
+//                     id: req.params.id
+//                 }
+//             }
+//         )
+//         res.status(200).json(updatedProfile)
+//     } catch (err) {
+//         res.status(400).json(err)
+//     }
+// })
 
 //Delete request to delete a user profile 
 router.delete("/:id", passwordAuth, async (req, res) => {
     try {
         const profileData = await User.destroy({
             where: {
-                id: req.params.id
+                id: req.params.id,
+                user_id: req.session.userId,
             }
         })
         if (!profileData) {
