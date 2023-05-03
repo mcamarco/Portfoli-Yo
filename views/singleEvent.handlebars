@@ -7,7 +7,9 @@
             <p class="title is-4" style="font-size:25px;">{{eventName}}</p>
             <p class="subtitle is-6">Posted by @{{user.username}} {{formatDate createdAt}}</p>
         </div>
+        {{#compareID userId user.id}}
         <button class="button" id="editEventButton"><i class="fa-regular fa-pen-to-square"></i></button>
+        {{/compareID}}
     </div>
     <div class="content" style="padding-left:1.5rem;">Date: {{date}}</div>
     <div class="content" style="padding-left:1.5rem;">Location: {{location}}</div>
