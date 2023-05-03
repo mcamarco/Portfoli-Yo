@@ -9,7 +9,9 @@
         </div>
         <button class="button" id="editEventButton"><i class="fa-regular fa-pen-to-square"></i></button>
     </div>
-    <div class="content" style="padding:1.5rem;">Date: {{date}}, Location: {{location}}, Industry: {{industry}}</div>
+    <div class="content" style="padding-left:1.5rem;">Date: {{date}}</div>
+    <div class="content" style="padding-left:1.5rem;">Location: {{location}}</div>
+    <div class="content" style="padding-left:1.5rem;">Industry: {{industry}}</div>
     <div class="content" style="padding:1.5rem; font-size: 20px">{{eventDescription}}</div>
 </div>
 
@@ -78,11 +80,25 @@
 <p style="text-align: center; font-size: 30px;">No comments yet.</p>
 {{/if}}
 
-<button class="button" id="add-comment-button"><i class="fa-solid fa-user-plus"></i>Add a comment</button>
+<button class="button" id="addCommentButton"><i class="fa-solid fa-user-plus"></i>Add a comment</button>
 
 {{!-- Form to add a comment --}}
+<div class="container is-one-third" id="commentForm" style="padding:2rem; display:none;">
+    <form>
+        <div class="field">
+            <label class="label">Comment</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input is-normal" id="commentInput" type="text">
+            </div>
+        </div>
+    </form>
+
+    <button class="button" id="createButton"><i class="fa-solid fa-circle-plus"></i></button>
+
+</div>
 
 
 
 
 <script src="/js/editEvent.js"></script>
+<script src="/js/addComment.js"></script>
