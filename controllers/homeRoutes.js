@@ -109,7 +109,7 @@ router.get("/events/:id", passwordAuth, async (req, res) => {
         })
     } catch (err) {
         res.status(500).json(err)
-    }
+    } 
 })
 
 //Get request to render login page 

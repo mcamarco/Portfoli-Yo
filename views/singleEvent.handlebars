@@ -1,1 +1,88 @@
 {{!-- render single event joined with its comments --}}
+
+{{!-- card to show event --}}
+<div class="card" id="event" data-eventid="{{id}}" style="padding:2rem;">
+    <div class="card-content">
+        <div class="media-content">
+            <p class="title is-4" style="font-size:25px;">{{eventName}}</p>
+            <p class="subtitle is-6">Posted by @{{user.username}} {{formatDate createdAt}}</p>
+        </div>
+        <button class="button" id="editEventButton"><i class="fa-regular fa-pen-to-square"></i></button>
+    </div>
+    <div class="content" style="padding:1.5rem;">Date: {{date}}, Location: {{location}}, Industry: {{industry}}</div>
+    <div class="content" style="padding:1.5rem; font-size: 20px">{{eventDescription}}</div>
+</div>
+
+{{!-- form to edit event --}}
+<div class="container is-one-third" id="updateForm" style="padding:2rem; display:none">
+    <form>
+        <div class="field">
+            <label class="label">Event Name</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input is-normal" id="eventNameInput" type="text" value="{{eventName}}">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Date of Event</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="textarea" id="dateInput" type="text" value="{{date}}">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Location</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="textarea" id="locationInput" type="text" value="{{location}}">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Industry</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="textarea" id="industryInput" type="text" value="{{industry}}">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Event Description</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="textarea" id="descriptionInput" type="text" value="{{eventDescription}}">
+            </div>
+        </div>
+
+    </form>
+
+    <button class="button" id="updateButton"><i class="fa-solid fa-pen"></i>Update</button>
+    <button class="button" id="deleteButton"><i class="fa-solid fa-trash"></i>Delete</button>
+
+</div>
+
+{{!-- Show comments on event --}}
+{{#if comments.length}}
+<h3 style="text-align: center; font-size: 20px;">Comments:</h3>
+{{#each comments}}
+<div id="comments-container">
+    <div class="card">
+        <div class="card-content" id="comment-card">
+            <div class="media-content">
+                <p class="subtitle is-6" style="font-size: 17px">Posted by @{{this.user.username}} {{formatDate
+                    this.createdAt}}</p>
+            </div>
+        </div>
+        <div class="content" style="padding:1.5rem">{{this.content}}</div>
+    </div>
+</div>
+{{/each}}
+{{else}}
+<p style="text-align: center; font-size: 30px;">No comments yet.</p>
+{{/if}}
+
+<button class="button" id="add-comment-button"><i class="fa-solid fa-user-plus"></i>Add a comment</button>
+
+{{!-- Form to add a comment --}}
+
+
+
+
+<script src="/js/editEvent.js"></script>

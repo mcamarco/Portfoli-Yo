@@ -149,4 +149,24 @@ try{
 //     }
 // });
 
+//Post request to search user
+router.post("/search", async (req, res) => {
+    try {
+        const userData = await User.findOne({
+            where:{
+                username:req.body.username
+            }
+        })
+
+            res.status(200).json(userData)
+    } catch (err) {
+        res.status(500).json(err)
+        alert("Username or email already exists")
+    }
+})
+
+
+
+
+
 module.exports = router
