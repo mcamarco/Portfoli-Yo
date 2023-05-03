@@ -1,13 +1,17 @@
-const searchButton = document.getElementById("search")
+const searchButton = document.getElementById("searchBar");
+const results = ["result1", "result2", "result3"];
 
-searchButton.addEventListener("click" (search) {
+searchButton.addEventListener("click", function() {
 
     // Render search results
-    results.forEach(function (result) {
-        $("filteredItems").append($('<li>').text(result));
+    const filteredItems = search(results, "query");
+    filteredItems.forEach(function (result) {
+        $("#filteredItems").append($("<searchResults>").text(result));
+    }
+    Else {
+        append($("<searchResults>").text(No results found))
+    }
     });
-
-});
 
 function search(items, query) {
     const filteredItems = [];
