@@ -26,11 +26,11 @@ searchButton.addEventListener("click", async function () {
             </header>
             <div class="card-content">
               <div class="content">
-                <h5>Email: </h5><p>${userData.email}</p>
-                <h5>Location: </h5><p>${userData.location}</p>
-                <h5>Industry: </h5><p>${userData.industry}</p>
-                <h5>Job Title: </h5><p>${userData.jobTitle}</p>
-                <h5>LinkedIn: </h5><p>${userData.linkedinURL}</p>
+                <h5><i class="fa-regular fa-envelope"></i> Email: </h5><p>${userData.email}</p>
+                <h5><i class="fa-solid fa-location-dot"></i> Location: </h5><p>${userData.location}</p>
+                <h5><i class="fa-solid fa-user-tie"></i> Industry: </h5><p>${userData.industry}</p>
+                <h5><i class="fa-solid fa-briefcase"></i> Job Title: </h5><p>${userData.jobTitle}</p>
+                <h5><i class="fa-brands fa-linkedin"></i> LinkedIn: </h5><p>${userData.linkedinURL}</p>
               </div>
             </div>
           </div>`
