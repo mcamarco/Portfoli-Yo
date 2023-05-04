@@ -6,13 +6,16 @@ Portfoli-yo is a platform designed specifically for business professionals seeki
 
 ## Usage
 
-The user will be able to search for other professionals within a community. 
+The user will be able to search for other professionals within a community to look at their portfolios and upcoming network events. 
 
-![alt text](IMAGE PHOTO PATH)
+![Screenshot of app](images\screencapture-localhost-3001-2023-05-04-14_03_54.png)
+
+[Deployed Link]()
+
 
 ## Credits
 
-[Helme, Atef](https://github.com/AtefHelmy )
+[Helmy, Atef](https://github.com/AtefHelmy )
 
 [Rothman, Elva](https://github.com/erothman1)
 
@@ -22,7 +25,11 @@ The user will be able to search for other professionals within a community.
 
 [Bulma](https://bulma.io/)
 
+[QR Generator](https://www.qr-code-generator.com)
 
+[Google Fonts](https://fonts.google.com/)
+
+[Font Awesome](https://fontawesome.com/)
 
 ## License
 
