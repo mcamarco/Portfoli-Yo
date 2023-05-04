@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: rgb(214, 188, 206);
+    height: 100%;
+}
+
+nav {
+    background-color: rgb(151, 134, 150) !important;
+}
+
+header h1 {
+    color: white;
+    font-size: 35px;
+    padding: 2rem;
+}
+
+nav a {
+    color: white !important;
+    font-size: 30px;
+    gap: 1rem;
+}
+
+nav button {
+    font-size: 30px;
+    background-color:rgb(151, 134, 150);
+    cursor: grab;
+    border-color:rgb(151, 134, 150)!important;
+    color: white !important;
+}
+
+nav button:hover {
+    background-color:rgb(113, 101, 112)
+}
+
+nav a:hover {
+    background-color:rgb(113, 101, 112) !important
+}
+
+.card {
+    margin: 2rem;
+
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.loginButton, .submitButton, #newEvent, #createButton, #editEventButton, #addCommentButton, #updateButton, #deleteButton, .profileSubmit {
+    padding:1rem !important; 
+    margin:2rem !important;
+    font-size: 20px !important;
+    background-color: rgb(151, 134, 150) !important;
+    color: white !important;
+}
+
+.loginButton:hover {
+    color: white;
+    background-color:rgb(113, 101, 112);
+}
+
+#yourEvents, #otherEvents {
+    font-size: 25px;
+    text-align: center;
+    padding: 1.5rem;
+    color: white;
+    font-weight:bold
+}
+
+.card, #update-user-form, #userForm {
+    background-color:rgb(241, 221, 235) !important;
+}
+
+#newEvent:hover, #createButton:hover, #editEventButton:hover, #addCommentButton:hover, #updatedButton:hover, #deleteButton:hover {
+    color: white;
+    background-color:rgb(113, 101, 112);
+}
+
+.label {
+    color: white;
+}
+
+.singEv {
+    display: flex;
+    flex-direction: row;
+}
+
+#userForm {
+    margin: 1rem;
+}

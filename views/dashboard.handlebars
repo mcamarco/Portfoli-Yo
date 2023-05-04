@@ -1,5 +1,5 @@
 {{!-- render all events of just logged in user --}}
-<h1>Your Events</h1>
+<h1 id="yourEvents">Your Upcoming Events</h1>
 {{#if events.length}}
 {{#each events}}
 <a href="/events/{{this.id}}">
@@ -13,8 +13,8 @@
             </header>
             <div class="card-content">
                 <div class="content">
-                    <p>Date: {{this.date}}</p>
-                    <p>Location: {{this.location}}</p>
+                    <p><i class="fa-solid fa-calendar-days"></i> Date: {{this.date}}</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Location: {{this.location}}</p>
                 </div>
             </div>
         </div>
@@ -27,7 +27,9 @@
 <p style="text-align: center">You're not going to any events</p>
 {{/if}}
 
-<button class="button" id="newEvent"><i class="fa-solid fa-user-plus"></i>New Event</button>
+<div class="center">
+    <button class="button" id="newEvent"><i class="fa-solid fa-user-plus"></i>New Event</button>
+</div>
 
 {{!-- Form to create a new event --}}
 <div class="container is-one-third" id="createForm" style="padding:2rem; display:none">
@@ -68,8 +70,10 @@
         </div>
 
     </form>
-
-    <button class="button" id="createButton"><i class="fa-solid fa-pen"></i>Create</button>
+<div class="center">
+      <button class="button" id="createButton"><i class="fa-solid fa-pen"></i>Create</button>
+</div>
+  
 
 </div>
 

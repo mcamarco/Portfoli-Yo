@@ -2,18 +2,19 @@
 
 {{!-- card to show event --}}
 <div class="card" id="event" data-eventid="{{id}}" style="padding:2rem;">
-    <div class="card-content">
+    <div class="card-content singEv">
         <div class="media-content">
             <p class="title is-4" style="font-size:25px;">{{eventName}}</p>
             <p class="subtitle is-6">Posted by @{{user.username}} {{formatDate createdAt}}</p>
         </div>
         {{#compareID userId user.id}}
-        <button class="button" id="editEventButton"><i class="fa-regular fa-pen-to-square"></i></button>
+        <button class="button" id="editEventButton" style="margin:1rem"><i
+                class="fa-regular fa-pen-to-square"></i></button>
         {{/compareID}}
     </div>
-    <div class="content" style="padding-left:1.5rem;">Date: {{date}}</div>
-    <div class="content" style="padding-left:1.5rem;">Location: {{location}}</div>
-    <div class="content" style="padding-left:1.5rem;">Industry: {{industry}}</div>
+    <div class="content" style="padding-left:1.5rem;"><strong>Date:</strong> {{date}}</div>
+    <div class="content" style="padding-left:1.5rem;"><strong>Location:</strong> {{location}}</div>
+    <div class="content" style="padding-left:1.5rem;"><strong>Industry: </strong> {{industry}}</div>
     <div class="content" style="padding:1.5rem; font-size: 20px">{{eventDescription}}</div>
 </div>
 
@@ -57,8 +58,11 @@
 
     </form>
 
-    <button class="button" id="updateButton"><i class="fa-solid fa-pen"></i>Update</button>
-    <button class="button" id="deleteButton"><i class="fa-solid fa-trash"></i>Delete</button>
+    <div class="center">
+        <button class="button" id="updateButton"><i class="fa-solid fa-pen"></i>Update</button>
+        <button class="button" id="deleteButton"><i class="fa-solid fa-trash"></i>Delete</button>
+    </div>
+
 
 </div>
 
@@ -82,7 +86,10 @@
 <p style="text-align: center; font-size: 30px;">No comments yet.</p>
 {{/if}}
 
-<button class="button" id="addCommentButton"><i class="fa-solid fa-user-plus"></i>Add a comment</button>
+<div class="center">
+    <button class="button" id="addCommentButton"><i class="fa-solid fa-user-plus"></i>Add a comment</button>
+</div>
+
 
 {{!-- Form to add a comment --}}
 <div class="container is-one-third" id="commentForm" style="padding:2rem; display:none;">
@@ -95,7 +102,10 @@
         </div>
     </form>
 
-    <button class="button" id="createButton"><i class="fa-solid fa-circle-plus"></i></button>
+    <div class="center">
+        <button class="button" id="createButton"><i class="fa-solid fa-circle-plus"></i></button>
+    </div>
+    
 
 </div>
 
