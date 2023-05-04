@@ -7,14 +7,18 @@
     <div class="column is-half">
         <div class="card my-5 mx-5">
             <header class="card-header">
-                <p class="card-header-title">
+                <p class="card-header-title" style="font-size:25px">
                     {{this.eventName}}
                 </p>
             </header>
             <div class="card-content">
                 <div class="content">
-                    <p><i class="fa-solid fa-calendar-days"></i> Date: {{this.date}}</p>
-                    <p><i class="fa-solid fa-location-dot"></i> Location: {{this.location}}</p>
+                    <h5><i class="fa-solid fa-calendar-days"></i> Date: </h5>
+                    <p>{{this.date}}</p>
+                    <h5><i class="fa-solid fa-location-dot"></i> Location: </h5>
+                    <p>{{this.location}}</p>
+                    <h5><i class="fa-solid fa-user-tie"></i>Industry: </h5>
+                    <p>{{industry}}</p>
                 </div>
             </div>
         </div>
