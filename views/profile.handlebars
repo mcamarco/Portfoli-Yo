@@ -4,8 +4,8 @@
 
 
 <!-- Form using Bulma -->
-<div class="container box p-6 has-background-light">
-  <h1 class="title has-text-centered has-text-success">Profile</h1>
+<div class="container box p-6 has-background-light" id="userForm">
+  <h1 class="title has-text-centered">Profile</h1>
 
   <form id="update-user-form">
     <div class="field">
@@ -52,10 +52,10 @@
 
     <div class="field is-grouped">
       <div class="control">
-        <button type="submit" id="submit" class="button is-success">Submit Changes</button>
+        <button type="submit" id="submit" class="button profileSubmit">Submit Changes</button>
       </div>
-      <div class="control">
-        <button type="button" id="delete-btn" class="button is-danger">Delete Profile</button>
+      <div class="control center">
+        <button type="button" id="delete-btn" class="button is-danger" style="padding:1rem; margin:2rem; font-size:20px;">Delete Profile</button>
       </div>
     </div>
   </form>

@@ -1,3 +1,4 @@
+<h1 id="otherEvents">See what other events people are going to!</h1>
 {{#if events.length}}
 {{#each events}}
 <a href="/events/{{this.id}}">
@@ -24,7 +25,6 @@
 
 {{/each}}
 {{else}}
-<p style="text-align: center">You're not going to any events</p>
+<p style="text-align: center">Oops. No events to see. Go to your dashboard to add an event you're going to!</p>
 {{/if}} 
 
-<script src="/js/login.js"></script>
