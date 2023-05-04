@@ -12,7 +12,7 @@ The user will be able to search for other professionals within a community.
 
 ## Credits
 
-[Helme, Atef](https://github.com/AtefHelmy )
+[Helmy, Atef](https://github.com/AtefHelmy )
 
 [Rothman, Elva](https://github.com/erothman1)
 
