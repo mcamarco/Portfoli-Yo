@@ -17,6 +17,24 @@ searchButton.addEventListener("click", async function () {
         const userData = await response.json()
         if (userData) {
             //render search results
+            const searchResults = document.getElementById("searchResults")
+            const cardData = `<div class="card">
+            <header class="card-header">
+              <p class="card-header-title" style="font-size:25px">
+                ${userData.firstName} ${userData.lastName}
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                <h5>Email: </h5><p>${userData.email}</p>
+                <h5>Location: </h5><p>${userData.location}</p>
+                <h5>Industry: </h5><p>${userData.industry}</p>
+                <h5>Job Title: </h5><p>${userData.jobTitle}</p>
+                <h5>LinkedIn: </h5><p>${userData.linkedinURL}</p>
+              </div>
+            </div>
+          </div>`
+          searchResults.innerHTML = cardData
             console.log(userData)
         } else {
             alert("No results found")
