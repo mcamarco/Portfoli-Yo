@@ -8,7 +8,7 @@ Portfoli-yo is a platform designed specifically for business professionals seeki
 
 The user will be able to search for other professionals within a community to look at their portfolios and upcoming network events. 
 
-![Screenshot of app](images\screencapture-localhost-3001-2023-05-04-14_03_54.png)
+![Screenshot of app](./public/images/screencapture-localhost-3001-2023-05-04-14_03_54.png)
 
 [Deployed Link]()
 
