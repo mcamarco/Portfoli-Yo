@@ -18,15 +18,16 @@ const query = document.getElementById("searchBar").value;
     }
     });
 
-    if (response.ok) {
-        const userData = await response.json()
-        if (userData) {
-            //render search results
-            console.log(userData)
-        } else {
-            alert("No results found")
+function search(items, query) {
+    const filteredItems = [];
+
+    // Filter items based on query
+    //Username filter search
+    items.forEach(function (username) {
+        if (username.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+            filteredItems.push(username);
         }
-    }
+    });
 
     return filteredItems;
 };
@@ -48,7 +49,7 @@ pTag.textcontent= searchResults
 
 searchResults=append(pTag)
 
-// }
+}
 
 
 
