@@ -83,7 +83,7 @@ router.get("/events", passwordAuth, async (req, res) => {
 })
 
 //Get request to render single event joined with user data and comment data 
-router.get("/events/:id", passwordAuth, async (req, res) => {
+router.get("/events/:id", async (req, res) => {
     try {
         const eventData = await Event.findByPk(req.params.id, {
             include: [
