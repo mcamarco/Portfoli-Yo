@@ -13,9 +13,10 @@
         {{/compareID}}
     </div>
     <div class="content" style="padding-left:1.5rem;"><strong><i class="fa-solid fa-calendar-days"></i> Date:</strong> {{date}}</div>
-    <div class="content" style="padding-left:1.5rem;"><strong><i class="fa-solid fa-location-dot"></i>Location:</strong> {{location}}</div>
-    <div class="content" style="padding-left:1.5rem;"><strong><i class="fa-solid fa-user-tie"></i>Industry: </strong> {{industry}}</div>
+    <div class="content" style="padding-left:1.5rem;"><strong><i class="fa-solid fa-location-dot"></i> Location:</strong> {{location}}</div>
+    <div class="content" style="padding-left:1.5rem;"><strong><i class="fa-solid fa-user-tie"></i> Industry: </strong> {{industry}}</div>
     <div class="content" style="padding:1.5rem; font-size: 20px">{{eventDescription}}</div>
+    <div class="content" id="qrImage" style="height:150px; width:150px"></div>
 </div>
 
 {{!-- form to edit event --}}
@@ -114,3 +115,4 @@
 
 <script src="/js/editEvent.js"></script>
 <script src="/js/addComment.js"></script>
+<script src="/js/QRgenerator.js"></script>

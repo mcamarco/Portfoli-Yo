@@ -1,34 +1,43 @@
 <!-- Main container -->
 
-  <!-- Left side -->
-  <div class="level-left">
-    <div class="level-item">
-      <p class="subtitle is-5">
-        <strong>Search Portfoli-Yo</strong>
+<div id="searchContainer">
+  <div class="level-item">
+    <p class="subtitle is-5">
+      <strong>Find a Portfoli-Yo</strong>
+    </p>
+  </div>
+  <div class="level-item">
+    <div class="field has-addons">
+      <p class="control">
+        <input class="input" id="searchTerm" type="text" placeholder="Search by username">
+      </p>
+      <p class="control">
+        <button class="button" id="searchBar">
+          Search
+        </button>
       </p>
     </div>
-    <div class="level-item">
-      <div class="field has-addons">
-        <p class="control">
-          <input class="input" id="searchTerm" type="text" placeholder="Find a Portfoli-Yo">
-        </p>
-        <p class="control">
-          <button class="button" id="searchBar">
-            Search
-          </button>
-        </p>
-      </div>
-    </div>
-  </div>
-
-
-<div class="card">
-  <div class="card-content">
-    <p class="title" id="searchResults">
-      {{!-- Search Results append here --}}
-      {{industry}}
-    </p>
   </div>
 </div>
 
-<script src="/js/search.js"></script> 
+<div id="searchResults">
+
+</div>
+{{!-- <div class="card">
+  <header class="card-header">
+    <p class="card-header-title" style="font-size:25px">
+      Firstname Lastname
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <h5>Email: </h5><p>email</p>
+      <h5>Location: </h5><p>location</p>
+      <h5>Industry: </h5><p>industry</p>
+      <h5>Job Title: </h5><p>job</p>
+      <h5>LinkedIn: </h5><p>url</p>
+    </div>
+  </div>
+</div> --}}
+
+<script src="/js/search.js"></script>

@@ -93,3 +93,8 @@ nav a:hover {
 #userForm {
     margin: 1rem;
 }
+
+#searchContainer {
+    padding: 1rem;
+    margin: 2rem;
+}
