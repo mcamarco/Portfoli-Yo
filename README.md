@@ -24,7 +24,3 @@ Users can search for other professionals within a community, view their portfoli
 - [QR Generator](https://www.qr-code-generator.com)
 - [Google Fonts](https://fonts.google.com/)
 - [Font Awesome](https://fontawesome.com/)
-
-## License
-
-Please refer to the LICENSE in the repo.
